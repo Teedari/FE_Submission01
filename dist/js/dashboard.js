@@ -3,6 +3,8 @@ import { element } from "./helpers.js";
 import PersistentData from "./models/PersistentData.js";
 
 let data = {};
+let myChart;
+const chart = element('#myChart')
 let isWeeklyRevenueChart = true;
 
 const populateTableData = (parent, data = []) => {
@@ -48,13 +50,9 @@ const displaySalesOnCards = () => {
   ).textContent = `$${lastMonthSales?.total} / ${lastMonthSales?.orders} orders`;
 };
 
-const flattenData = (data={}) => {
-  const weeklyData = data?.sales_over_time_week.values
-  const monthlyData = data?.sales_over_time_year
-  return 
-}
 
-const displayRevenueChart = (data={}, weekly=true) => {
+const displayRevenueChart = (data={}, destroy=false) => {
+  if(destroy) myChart.destroy()
   const weeklyData = Object.values(data?.sales_over_time_week)
     .map( sale => sale.orders)
   const monthlyData = Object.values(data?.sales_over_time_year)
@@ -83,15 +81,19 @@ const displayRevenueChart = (data={}, weekly=true) => {
     'month 11',
     'month 12',
   ]
-  const chart = element('#myChart')
-  const myChart = new Chart(chart, {
+
+  const label = isWeeklyRevenueChart ? 'Revenue (Last 7 days)' : 'Revenue (12 months)'
+
+  element('#chart-label').textContent = label
+  
+   myChart = new Chart(chart, {
     type: "bar",
     data: {
-      labels: weekly ? weeklyLabels : monthlyLabels, 
+      labels: isWeeklyRevenueChart ? weeklyLabels : monthlyLabels, 
       datasets: [
         {
-          label: weekly ? 'Revenue (Last 7 days)' : 'Revenue (12 months)',
-          data: weekly ? weeklyData : monthlyData,
+          label: label,
+          data: isWeeklyRevenueChart ? weeklyData : monthlyData,
           backgroundColor: ["rgba(54, 162, 235, 0.2)"],
           borderColor: ["rgba(54, 162, 235, 1)"],
           borderWidth: 1,
@@ -127,3 +129,7 @@ api
     displayRevenueChart(data?.dashboard)
   });
 
+element('#switcher').onchange = function(e){
+  isWeeklyRevenueChart = !this.checked
+  displayRevenueChart(data?.dashboard, true)
+}
