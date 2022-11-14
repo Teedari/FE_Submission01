@@ -18,7 +18,7 @@ const populateTableData = (parent, data = []) => {
   </tr>
   `
   );
-  parent.innerHTML = tableData.toLocaleString();
+  parent.innerHTML = tableData.toString().replaceAll(',', '');
 };
 
 const displaySalesOnCards = () => {
