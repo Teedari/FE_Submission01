@@ -1,9 +1,10 @@
 import { render } from "../helpers.js"
 
 export default class {
+  TEMPLATE_DIR = '../../pages/'
   constructor(template_path, title='', scripts=[]){
     document.title = 'Freddys | '.concat(title)
-    this.template_path = template_path
+    this.template_path = this.TEMPLATE_DIR.concat(template_path)
     this.scripts = scripts
   }
 

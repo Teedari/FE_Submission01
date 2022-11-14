@@ -3,7 +3,7 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
   constructor(){
     super(
-      '../../../pages/dashboard.html', 
+      'dashboard.html', 
       'Dashboard',
       [
         './dist/js/dashboard.js',
