@@ -1,0 +1,42 @@
+      <section class="dashboard-layout">
+        <aside class="dashboard-layout__aside">
+          <div>
+            <center>
+              <img src="/dist/assets/Freddys_Logo.svg" width="100px" alt="" />
+            </center>
+          </div>
+          <ul class="menu-nav">
+            <li><a data-link href="" class="menu-nav__item">Dashboard</a></li>
+            <li><a data-link href="#orders" class="menu-nav__item">Orders</a></li>
+            <li><a data-link href="#" class="menu-nav__item">Logout</a></li>
+          </ul>
+        </aside>
+        <main class="dashboard-layout__main">
+          <div class="d-flex items-center justify-content-between">
+            <h2>Orders</h2>
+            <div class="d-flex items-center gap">
+              <span>&#128269;</span>
+              <input id="search-input" type="text">
+            </div>
+          </div>
+          
+          <table id="orders" class="m-t-4">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="orders-tbody">
+
+            </tbody>
+          </table>
+          <div class="d-flex align-items-center gap m-t-2">
+            Page <span class="clickable" id="prev-page">&#9664</span><span id="page-status"></span><span class="clickable" id="next-page">&#9654</span>
+          </div>
+        </main>
+      </section>
+    </div>
+

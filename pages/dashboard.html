@@ -1,0 +1,61 @@
+      <section class="dashboard-layout">
+        <aside class="dashboard-layout__aside">
+          <div>
+            <center>
+              <img src="/dist/assets/Freddys_Logo.svg" width="100px" alt="" />
+            </center>
+          </div>
+          <ul class="menu-nav">
+            <li><a data-link href="" class="menu-nav__item">Dashboard</a></li>
+            <li><a data-link href="#orders" class="menu-nav__item">Orders</a></li>
+            <li><a data-link href="#logout" class="menu-nav__item">Logout</a></li>
+          </ul>
+        </aside>
+        <main class="dashboard-layout__main">
+          <h2>Dashboard</h2>
+          <div class="d-flex gap m-t-4">
+            <div class="card w-100">
+              <h4>Today</h4>
+              <p class="m-t-4" id="today-sales">$38474/9 orders</p>
+            </div>
+            <div class="card w-100">
+              <h4>Last Week</h4>
+              <p class="m-t-4" id="last-week-sales">$38474/9 orders</p>
+            </div>
+            <div class="card w-100">
+              <h4>Last Month</h4>
+              <p class="m-t-4" id="last-month-sales">$38474/9 orders</p>
+            </div>
+          </div>
+          <div class="d-flex items-center justify-content-between">
+
+            <h2 class="m-t-4">Revenue(Last 7 days)</h2>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+            perferendis illum nisi culpa cumque quibusdam amet labore alias
+            molestias laudantium corrupti, vitae esse. Earum ab accusantium
+            dolorem inventore aperiam modi.
+          </p>
+          <canvas id="myChart"></canvas>
+          <h2 class="m-t-4">Best Sellers</h2>
+          <table id="best-sellers" class="m-t-4">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th># Unit Sold</th>
+                <th>Revenue</th>
+              </tr>
+            </thead>
+            <tbody id="best-sellers-tbody">
+
+            </tbody>
+          </table>
+        </main>
+      </section>
+    </div>
