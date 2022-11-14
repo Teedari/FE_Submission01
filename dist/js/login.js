@@ -3,8 +3,9 @@ import { element } from "./helpers.js";
 import PersistentData from "./models/PersistentData.js";
 
 const form = element("#login-form");
-form.onsubmit = function (e) {
+const formSubmitHandler = function (e) {
   e.preventDefault();
+  e.submitter.setAttribute('disabled', null)
   const data = {
     username: this["username"].value,
     password: this['password'].value,
@@ -20,5 +21,8 @@ form.onsubmit = function (e) {
     })
     .catch((error) => {
       console.warn(error);
+      e.submitter.removeAttribute('disabled')
     });
-};
+}
+
+form.onsubmit = formSubmitHandler;

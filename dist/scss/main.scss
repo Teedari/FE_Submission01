@@ -21,6 +21,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+%button-active{
+  background: $muted-clr;
+  color: white;
+}
+
 input,
 button {
   width: 100%;
@@ -28,11 +33,21 @@ button {
   border: 1px solid $border-color;
   background: inherit;
   font-size: 1.1rem;
+  cursor: pointer;
+  &:hover{
+    @extend %button-active;
+  }
+
+  &:disabled{
+    transform: scale(.8);
+  }
 }
+
 
 button {
   color: $muted-clr;
 }
+
 
 table {
   border: 1px solid;
