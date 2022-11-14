@@ -3,12 +3,11 @@ import { element } from "./helpers.js";
 import PersistentData from "./models/PersistentData.js";
 
 const form = element("#login-form");
-console.log(form);
 form.onsubmit = function (e) {
   e.preventDefault();
   const data = {
     username: this["username"].value,
-    password: "ElmStreet2019",
+    password: this['password'].value,
   };
 
   const api = new Api(axios);
